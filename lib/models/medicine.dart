@@ -5,12 +5,14 @@ class Medicine {
   final String name;
   final TimeOfDay time;
   bool isTaken;
+  String? guardianContact; // 보호자 연락처 추가
 
   Medicine({
     required this.id,
     required this.name,
     required this.time,
     this.isTaken = false,
+    this.guardianContact,
   });
 
   Map<String, dynamic> toJson() => {
@@ -19,6 +21,7 @@ class Medicine {
     'hour': time.hour,
     'minute': time.minute,
     'isTaken': isTaken,
+    'guardianContact': guardianContact,
   };
 
   factory Medicine.fromJson(Map<String, dynamic> json) {
@@ -27,6 +30,7 @@ class Medicine {
       name: json['name'],
       time: TimeOfDay(hour: json['hour'] as int, minute: json['minute'] as int),
       isTaken: json['isTaken'] as bool,
+      guardianContact: json['guardianContact'],
     );
   }
 }

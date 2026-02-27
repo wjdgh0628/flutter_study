@@ -26,7 +26,6 @@ class DefaultFirebaseOptions {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      case Platform.isIOS: // Platform is from dart:io or similar context, but here we use switch
       case TargetPlatform.iOS:
         return ios;
       default:
